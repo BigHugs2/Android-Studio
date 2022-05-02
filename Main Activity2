@@ -1,0 +1,42 @@
+package com.example.myapplication;
+
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity2 extends AppCompatActivity {
+
+    Button button2;
+    TextView textView;
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        findViewById(R.id.textView);
+        textView = findViewById(R.id.textView);
+
+        button2 = findViewById(R.id.button2);
+
+        button2.setOnClickListener(v -> startActivity(new Intent(MainActivity2.this, MainActivity3.class)));
+
+        Intent i = getIntent();
+
+        String name = i.getStringExtra("name");
+        textView.setText(name);
+        String fname = i.getStringExtra("fname");
+        textView.setText(fname);
+        String phone = i.getStringExtra("phone");
+        textView.setText(phone);
+
+        textView.setText(" " + name + " " + fname + "\n " + phone);
+
+    }
+
+}
